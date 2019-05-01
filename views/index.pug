@@ -1,0 +1,51 @@
+extends layouts/layout
+
+block content
+  .d-flex.flex-column.flex-md-row
+    div.d-flex.d-md-none.justify-content-between.align-items-top
+      .flex-shrink-1.pl-4.pt-4
+        a.button-collapse(href='#' data-activates='slide-out')
+          i.fa.fa-bars.fa-2x.text-dark
+      .flex-shrink-1
+        img(src='/img/ARP.jpg' alt='ARP By Abhishek Rohilla')
+
+    .flex-shrink-1.d-none.d-md-block(style='height:calc(100vh - 1rem);position:sticky;top:0.5rem;')
+      .list-group.h-100.grey.lighten-3(style='min-width:240px;max-width:280px;')
+        a.list-group-item.list-group-item-action.text-center(href='#!')
+          img(src='/img/ARP.jpg' alt='ARP By Abhishek Rohilla')
+        each d, index in data
+          a.list-group-item.list-group-item-action.text-capitalize(class= key === d.name ? "active" : "" href=`/${d.name}`)= d.name  
+        
+    .flex-grow-1
+      .container.pt-3.pt-md-4.pt-xl-5(style="min-height:90vh;")
+        h1.h2-reponsive.px-2.mb-3
+          span ARP by Abhishek Rohilla
+        h2.h5.h5-reponsive.px-2
+          span= curr.heading
+        h3.h6.h6-reponsive.px-2.mb-3.grey-text= curr.subheading
+        if curr.list
+          ul
+            each i, index in curr.list
+              li= i
+        .row.mt-5
+          .col-md-12
+            #mdb-lightbox-ui
+            .mdb-lightbox
+              each img, index in curr.images
+                figure.item.col-6.col-lg-4
+                  a(href=`${img.url.large}` data-size=`${img.width}x${img.height}`)
+                    img.img-fluid.card(src=`${img.url.small}` style="border-radius: 3px;")
+        p.lead.my-4.my-md-5= curr.description
+      
+      include includes/footer.pug
+
+  #slide-out.side-nav
+    ul.custom-scrollbar
+      li
+        .list-group.h-100.grey.lighten-3(style='min-width:240px;max-width:280px;')
+          span.text-dark.h5-responsive.px-3 ARP
+          //a.button-collapse.text-right.pr-3.pt-2(href='#' data-activates='slide-out')
+            i.fa.fa-chevron-left.fa-2x.text-dark
+        each d, index in data
+          a.list-group-item.list-group-item-action.text-capitalize(class= key === d.name ? "active" : "" href=`/${d.name}`)= d.name    
+          
