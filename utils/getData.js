@@ -1,9 +1,9 @@
 const fs = require("fs");
 const sizeOf = require("image-size");
 
-const getContent = async () => {
+const getContent = () => {
   let data = {};
-  await fs.readdirSync(__dirname + "/../public/content").forEach(async d => {
+  fs.readdirSync(__dirname + "/../public/content").forEach(async d => {
     data[d] = {
       name: d
     };
@@ -20,7 +20,6 @@ const getContent = async () => {
         }
       });
     });
-
     const rl = fs
       .readFileSync(__dirname + "/../public/content/" + d + "/content.txt", "utf-8")
       .split("\n")
@@ -38,4 +37,4 @@ const getContent = async () => {
   return data;
 };
 
-module.exports = getContent;
+module.exports = getContent();
