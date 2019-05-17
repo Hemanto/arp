@@ -34,7 +34,15 @@ const getContent = () => {
       i++;
     }
   });
-  return data;
+
+  const { home, jewels, events, ...rest } = data;
+  let ordered = {
+    home,
+    jewels,
+    events,
+    ...rest
+  };
+  return ordered;
 };
 
 module.exports = getContent();
