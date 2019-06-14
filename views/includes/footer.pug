@@ -18,62 +18,38 @@ footer.page-footer.font-small.blue-grey.lighten-5
             i.fab.fa-instagram.white-text  
 
   .container.text-center.text-md-left.mt-5
-    .row.mt-3.dark-grey-text.pb-4
-      //.col-md-3.mx-auto.mb-4
-        h6.text-uppercase.font-weight-bold Products
+    .row.mt-3.dark-grey-text.pb-4    
+      .col-md-8.mx-auto.mb-md-0.mb-4
+        h6.text-uppercase.font-weight-bold Submit Query Here
         hr.blue.accent-3.mb-4.mt-0.d-inline-block.mx-auto(style='width: 60px;')
-        p
-          a.dark-grey-text(href='#!') About me
-        p
-          a.dark-grey-text(href='#!') Press
-        p
-          a.dark-grey-text(href='#!') Brand
-          
-      //.col-md-3.mx-auto.mb-4.d-none.d-md-block
-        h6.text-uppercase.font-weight-bold Useful links
-        hr.blue.accent-3.mb-4.mt-0.d-inline-block.mx-auto(style='width: 60px;')
-        p
-          a.dark-grey-text(href='#!') Become an Affiliate
-        p
-          a.dark-grey-text(href='#!') Rates
-        p
-          a.dark-grey-text(href='#!') Help
-          
-      //.col-md-4.mx-auto.mb-md-0.mb-4
-        h6.text-uppercase.font-weight-bold Contact
-        hr.blue.accent-3.mb-4.mt-0.d-inline-block.mx-auto(style='width: 60px;')
-        p
-          i.fas.fa-home.mr-3
-          |  Saket, New Delhi, India
-        p
-          i.fas.fa-envelope.mr-3
-          |  info@example.com
-        p
-          i.fas.fa-phone.mr-3
-          |  + 01 234 567 88
+        form(style='color: #757575;' action="/submit-query" method="POST")
+          input#defaultContactFormName.form-control.mb-4(type='text' name="name" placeholder='Name' required=true)
+          input#defaultContactFormEmail.form-control.mb-4(type='email' name="email" placeholder='E-mail' required=true)
+          .form-group
+            textarea#exampleFormControlTextarea2.form-control.rounded-0(name="message" rows='3' placeholder='Message' required=true)
+          button.btn.btn-info.btn-rounded.z-depth-0(type='submit')
+            i.fas.fa-paper-plane.mr-3 
+            | Send
 
       .col-md-4.mx-auto.mb-md-0.mb-4
         h6.text-uppercase.font-weight-bold Phone
-        hr.blue.accent-3.mb-4.mt-0.d-inline-block.mx-auto(style='width: 60px;')
+        hr.blue.accent-3.mb-3.mt-0.d-inline-block.mx-auto(style='width: 60px;')
         p
           i.fas.fa-phone.mr-3
           |  + 91 99995 05187
-
-      .col-md-4.mx-auto.mb-md-0.mb-4
-        h6.text-uppercase.font-weight-bold Email
-        hr.blue.accent-3.mb-4.mt-0.d-inline-block.mx-auto(style='width: 60px;')
+          
+        h6.text-uppercase.font-weight-bold.mt-5 Email
+        hr.blue.accent-3.mb-3.mt-0.d-inline-block.mx-auto(style='width: 60px;')
         p
           i.fas.fa-envelope.mr-3
           |  rohilla.abhishek.27@gmail.com
-
-      .col-md-4.mx-auto.mb-md-0.mb-4
-        h6.text-uppercase.font-weight-bold Address
-        hr.blue.accent-3.mb-4.mt-0.d-inline-block.mx-auto(style='width: 60px;')
+          
+        h6.text-uppercase.font-weight-bold.mt-5 Address
+        hr.blue.accent-3.mb-3.mt-0.d-inline-block.mx-auto(style='width: 60px;')
         p
           i.fas.fa-home.mr-3
           |  287 Bijwasan, New Delhi 110061
           
   .footer-copyright.text-center.text-black-50.py-3
     | &copy; 2018 Copyright:
-    a.dark-grey-text(href='#!')  Abhishek Rohilla Photography
-    
+    a.dark-grey-text(href='#')  Abhishek Rohilla Photography

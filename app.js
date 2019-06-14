@@ -26,6 +26,8 @@ app.use(
 );
 app.use(express.static(path.join(__dirname, "public")));
 
+app.post('/submit-query', require('./controllers/mailer.js'))
+
 app.use(async (req, res, next) => {
   const page = decodeURIComponent(req.path.slice(1).toLowerCase());
   const key = page === "" ? "home" : page;
@@ -43,8 +45,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render("error");
 });
-
-// const port = 80
-// app.listen(port, () => console.log(`Example app listening on port ${port}!`))
 
 module.exports = app;
